@@ -427,13 +427,13 @@ class AvailabilityChart extends ChartComponent {
                 .classed('tsi-compactFromTo', true)
                 .style('left', (brushPositions.leftPos != null ? Math.max(brushPositions.leftPos, 5) : 5) + 'px')
                 .text(Utils.timeFormat(false, false, this.chartOptions.offset, this.chartOptions.is24HourTime, null, null, this.chartOptions.dateLocale)(new Date(this.selectedFromMillis)));
-            let timezoneAbbreviation = ' (' + Utils.createTimezoneAbbreviation(this.chartOptions.offset) + ')';
+            // let timezoneAbbreviation = ' (' + Utils.createTimezoneAbbreviation(this.chartOptions.offset) + ')';
             rightTimeText = this.timePickerContainer.append('div')
                 .attr('class', 'tsi-compactFromTo')
                 .style('right', brushPositions.rightPos != null ? 'calc(100% - ' + brushPositions.rightPos + 'px)' : '5px')
                 .style('left', 'auto')
                 .text(Utils.timeFormat(false, false, this.chartOptions.offset, this.chartOptions.is24HourTime, null, null, this.chartOptions.dateLocale)
-                    (new Date(this.selectedToMillis)) + timezoneAbbreviation);
+                    (new Date(this.selectedToMillis)));
         }
 
         if (leftTimeText && rightTimeText) {
